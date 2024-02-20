@@ -1,0 +1,42 @@
+[System]
+Name='MATLAB MAMDANI'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=6
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Banyak__Sarang__Walet'
+Range=[0 100]
+NumMFs=2
+MF1='Sedikit':'trapmf',[0 0 40 80]
+MF2='Banyak':'trapmf',[40 80 110 110]
+
+[Input2]
+Name='Kekotoran__Sarang__Walet'
+Range=[0 100]
+NumMFs=3
+MF1='Rendah':'trapmf',[0 0 30 40]
+MF2='Sedang':'trimf',[30 40 50]
+MF3='Tinggi':'trapmf',[40 50 110 110]
+
+[Output1]
+Name='Kecepatan__Mesin__Sortir'
+Range=[0 1000]
+NumMFs=2
+MF1='Lambat':'trapmf',[0 0 300 1000]
+MF2='Cepat':'trapmf',[300 1000 1100 1100]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
