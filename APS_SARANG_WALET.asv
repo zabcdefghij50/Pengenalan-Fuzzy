@@ -158,12 +158,9 @@ hasil = evalfis([handles.Banyak_SW handles.Kekotoran_SW], proses);
 set(handles.edit8, 'string', hasil);
 
 if hasil <= 650 {
-        msgbox('lambat');
+        msgbox('kecil');
         }
-elseif hasil > 650 && hasil <= 1000{
-        msgbox('cepat');
-        }
-end
+elseif hasil
 
 
 % --- Executes on button press in pushbutton2.
