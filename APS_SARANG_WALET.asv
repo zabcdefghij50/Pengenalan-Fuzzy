@@ -22,7 +22,7 @@ function varargout = APS_SARANG_WALET(varargin)
 
 % Edit the above text to modify the response to help APS_SARANG_WALET
 
-% Last Modified by GUIDE v2.5 20-Feb-2024 10:47:04
+% Last Modified by GUIDE v2.5 22-Feb-2024 11:50:55
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -157,11 +157,16 @@ proses = readfis('MATLAB MAMDANI');
 hasil = evalfis([handles.Banyak_SW handles.Kekotoran_SW], proses);
 set(handles.edit8, 'string', hasil);
 
-if hasil <= 650 {
-        msgbox('kecil');
-        }
+% if hasil <= 650 {
+%         msgbox('lambat');
+%         }
+% elseif hasil > 650 && hasil <= 1000{
+%         msgbox('cepat');
+%         }
+% end
+if hasil <= 650
+    set(handles.edit9, 'string', 'Lambat');
 elseif hasil
-
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
@@ -190,6 +195,29 @@ function edit8_Callback(hObject, eventdata, handles)
 % --- Executes during object creation, after setting all properties.
 function edit8_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to edit8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit9_Callback(hObject, eventdata, handles)
+% hObject    handle to edit9 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit9 as text
+%        str2double(get(hObject,'String')) returns contents of edit9 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit9_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit9 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
